@@ -144,7 +144,7 @@
 			<div id="users" class="tab-pane fade in active">
 				<h3>Users</h3>
 				<?php
-					if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'wcss_recipe' AND TABLE_NAME = 'users'")){
+					if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'foodbook' AND TABLE_NAME = 'users'")){
 						$query->execute();
 						$query=$query->fetch(PDO::FETCH_ASSOC);
 						$max=$query['AUTO_INCREMENT'];
@@ -210,7 +210,7 @@
 			<div id="ingredients" class="tab-pane fade">
 				<h3>Ingredients</h3>
 				<?php
-					if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'wcss_recipe' AND TABLE_NAME = 'ingredients'")){
+					if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'foodbook' AND TABLE_NAME = 'ingredients'")){
 						$query->execute();
 						$query=$query->fetch(PDO::FETCH_ASSOC);
 						$max=$query['AUTO_INCREMENT'];

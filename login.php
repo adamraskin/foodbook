@@ -277,7 +277,7 @@
 								$pass = password_hash($pass, PASSWORD_DEFAULT);//hashes password
 								if($query=$pdo->prepare("INSERT INTO `users` (fname, lname, uname, email, pass) VALUES (:fname, :lname, :uname, :email, :pass)")){
 									$query->execute(array($fname, $lname, $uname, $email, $pass));
-									if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'wcss_recipe' AND TABLE_NAME =  'users'")){
+									if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'foodbook' AND TABLE_NAME =  'users'")){
 										$query->execute();//gets the users id from the database before it is input
 										$query=$query->fetch(PDO::FETCH_ASSOC);
 										$id=$query['AUTO_INCREMENT']-1;
