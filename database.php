@@ -10,7 +10,6 @@ $debug = true;
 try
 {
    $pdo= new PDO($dsn, $mysql_username,$mysql_password, array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-	echo "dsn set to -> '".$dsn." <-- '";
 }
 catch (PDOException $e)
 {
