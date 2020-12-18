@@ -1,8 +1,9 @@
 <html>
 	<head>
 		<?php
-		session_start();
-		include("database.php")
+      session_start();
+      include("database.php");
+      
 		?>
 		<title>
 			FoodBook
@@ -207,6 +208,7 @@
 		</div>
 	</div>
 		<?php
+				
 			if(!isset($_POST['frmname'])){
 			}else if($_POST['frmname']=="login"){
 				//checks that the form name is set to login
@@ -214,7 +216,7 @@
 				$pass=$_POST['pass'];
 				
 				if($uname!="" && $pass!=""){
-					
+					echo " user and pwd not blank - they are $uname and $pass<br>";
 					if($query=$pdo->prepare("SELECT `ID` FROM `users` WHERE `uname` = :uname")){
 						$query->execute(array(':uname'=> $uname));
 						$id=$query->fetch(PDO::FETCH_ASSOC);
@@ -225,9 +227,11 @@
 						$query->execute(array(':id'=>$id));
 						$pass2=$query->fetch(PDO::FETCH_ASSOC);
 						$pass2=$pass2['pass'];
-            echo($pass2);
 					}//gets users password
 
+					
+					print_r($pass);
+					print_r($pass2);
 					if(password_verify($pass, $pass2)){
 						if($query=$pdo->prepare("UPDATE `users` SET `hash` = :hash WHERE `ID` = :id")){
 							$hash=md5($uname.$id.$pass.time());
@@ -240,7 +244,8 @@
 						window.location.replace("explore.php");
 						</script>';//redirects to explore page
 					}else{
-						echo '<script>alert("Invalid username/password combination!");</script>';
+						echo "<script>alert('Invalid username/password combination!');</script>";
+
 					}
 					
 			}else{
@@ -275,6 +280,7 @@
 						if(filter_var($email, FILTER_VALIDATE_EMAIL)){
 							if($email!=$email2 && $uname!=$uname2){//makes sure email is real, and email and username arent already taken
 								$pass = password_hash($pass, PASSWORD_DEFAULT);//hashes password
+
 								if($query=$pdo->prepare("INSERT INTO `users` (fname, lname, uname, email, pass) VALUES (:fname, :lname, :uname, :email, :pass)")){
 									$query->execute(array($fname, $lname, $uname, $email, $pass));
 									if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'foodbook' AND TABLE_NAME =  'users'")){
@@ -302,6 +308,7 @@
 					echo '<script>alert("Passwords do not match!");</script>';
 				}
 			}
+			
 		?>
 	</body>
 </html>

@@ -4,10 +4,6 @@
       session_start();
       include("database.php");
       
-// brian trying to turn on error reporting 30May2020      
-      ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
 		?>
 		<title>
 			FoodBook
@@ -237,7 +233,6 @@
 					print_r($pass);
 					print_r($pass2);
 					if(password_verify($pass, $pass2)){
-						echo "the pwd passed verification here on line 237<br>";
 						if($query=$pdo->prepare("UPDATE `users` SET `hash` = :hash WHERE `ID` = :id")){
 							$hash=md5($uname.$id.$pass.time());
 							$query->execute(array(':hash'=>$hash, ':id'=>$id));
@@ -249,11 +244,8 @@
 						window.location.replace("explore.php");
 						</script>';//redirects to explore page
 					}else{
-						echo "HELLO - this does not show <br><script>alert('Invalid username/password combination!');</script>";
-						echo "the pwd verification failed here on line 249<br>";
-		            if(isset($_POST)){
-		              print_r($_POST);
-		            }
+						echo "<script>alert('Invalid username/password combination!');</script>";
+
 					}
 					
 			}else{
