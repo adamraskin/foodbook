@@ -228,9 +228,6 @@
 						$pass2=$pass2['pass'];
 					}//gets users password
 
-					
-					print_r($pass);
-					print_r($pass2);
 					if(password_verify($pass, $pass2)){
 						if($query=$pdo->prepare("UPDATE `users` SET `hash` = :hash WHERE `ID` = :id")){
 							$hash=md5($uname.$id.$pass.time());
