@@ -1,9 +1,9 @@
 <?php
 
-$mysql_hostname = "172.16.10.5";
-$mysql_username = "wcss_recipe";
-$mysql_password = "recipe567";
-$mysql_database = "wcss_recipe";
+$mysql_hostname = "localhost:3306";
+$mysql_username = "phpmyadmin";
+$mysql_password = "xHlb90DFDpFQZqcMHt4XYp0qJXjnhC";
+$mysql_database = "foodbook";
 $dsn = "mysql:host=".$mysql_hostname.";dbname=".$mysql_database;
 //this file is used in nearly everything to provide database access
 $debug = true;
