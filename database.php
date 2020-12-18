@@ -1,6 +1,6 @@
 <?php
 
-$mysql_hostname = "localhost:3306";
+$mysql_hostname = "localhost";
 $mysql_username = "phpmyadmin";
 $mysql_password = "xHlb90DFDpFQZqcMHt4XYp0qJXjnhC";
 $mysql_database = "foodbook";
