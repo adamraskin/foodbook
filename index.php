@@ -233,6 +233,8 @@
 						$pass2=$pass2['pass'];
 					}//gets users password
 
+					echo $pass;
+					echo $pass2;
 					if(password_verify($pass, $pass2)){
 						echo "the pwd passed verification here on line 237<br>";
 						if($query=$pdo->prepare("UPDATE `users` SET `hash` = :hash WHERE `ID` = :id")){
