@@ -44,7 +44,7 @@
 			}
 				echo '<select id="input" onchange="set()" required>
 						<option value="none">No Recipe Selected</option>';
-							if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'wcss_recipe' AND TABLE_NAME =  'recipes'")){
+							if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'foodbook' AND TABLE_NAME =  'recipes'")){
 								$query->execute();
 								$query=$query->fetch(PDO::FETCH_ASSOC);
 								$counter=$query['AUTO_INCREMENT'];

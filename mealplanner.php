@@ -249,7 +249,7 @@
 						</select>";
 							//ingredient input
 							echo "<select form=\"input\" name=\"ingredient1\" id=\"ingredient1\">";
-							if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'wcss_recipe' AND TABLE_NAME =  'ingredients'")){
+							if($query=$pdo->prepare("SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA =  'foodbook' AND TABLE_NAME =  'ingredients'")){
 								$query->execute();
 								$query=$query->fetch(PDO::FETCH_ASSOC);
 								$max=$query['AUTO_INCREMENT'];
