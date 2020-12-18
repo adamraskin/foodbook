@@ -216,7 +216,6 @@
 				$pass=$_POST['pass'];
 				
 				if($uname!="" && $pass!=""){
-					echo " user and pwd not blank - they are $uname and $pass<br>";
 					if($query=$pdo->prepare("SELECT `ID` FROM `users` WHERE `uname` = :uname")){
 						$query->execute(array(':uname'=> $uname));
 						$id=$query->fetch(PDO::FETCH_ASSOC);

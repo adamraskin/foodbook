@@ -59,7 +59,7 @@
 		
 		.jumbotron {
     position: relative;
-    background: #000 url("/pictures/spread.jpg") center center;
+    background: #000 url("pictures/spread.jpg") center center;
     width: 100%;
     height: 30%;
     background-size: cover;
